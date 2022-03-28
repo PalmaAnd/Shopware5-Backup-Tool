@@ -1,6 +1,11 @@
 #!/usr/bin/env php
 <?php
 
+namespace Palmaand\Shopware5BackupTool;
+
+use Palmaand\Shopware5BackupTool\Components\Color;
+
+
 class Shopware5BackupTool
 {
 
@@ -19,8 +24,9 @@ class Shopware5BackupTool
 
     function startOptions()
     {
-        echo "Starting backup.. \n";
-        if (file_exists(__DIR__ . "/../backup")) {
+        echo "-e"  . (new Color)->colorMessage("test123", Color::$RED);
+        $backupFolder = __DIR__ . "/../backup";
+        if (file_exists($backupFolder)) {
             echo "Do you want to delete the already existing backup folder? Y=[yes] N=[no]\n";
             $handle = fopen("php://stdin", "r");
             $line = fgets($handle);
@@ -28,10 +34,10 @@ class Shopware5BackupTool
             if ($command == 'Y') {
                 $this->clearBackup();
                 echo "Existing backup and all subfolders removed \n";
-                mkdir(__DIR__ . "/../backup");
+                mkdir($backupFolder);
             }
         } else {
-            mkdir(__DIR__ . "/../backup");
+            mkdir($backupFolder);
         }
 
         echo "Would you like to create backup of the custom folder? Y=[yes] N=[no]\n";

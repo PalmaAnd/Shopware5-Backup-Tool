@@ -1,0 +1,12 @@
+{
+    "name": "palmaand/shopware5-backup-tool",
+    "description": "Script which can be used to create a backup for a Shopware 5 project",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Palmaand\\Shopware5BackupTool\\": "src/"
+        }
+    },
+    "require": {}
+}
